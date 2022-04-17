@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import './Registerd.css'
 
@@ -15,7 +15,7 @@ const Registerd = () => {
     user,
     loading,
     error, 
-  ] = useCreateUserWithEmailAndPassword(auth);
+  ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
 
   
   const handleEmail = event => {
@@ -41,6 +41,14 @@ const handleName = event => {
  if(error){
    errorElement = <p className='text-danger text-center'>error: {error?.message}</p>
  }
+ const location = useLocation();
+ const from = location.state?.from?.pathname || "/";
+
+ useEffect(() => {
+     if (user) {
+         navigate(from);
+     }
+ }, [user]);
   return (
 
     <form onSubmit={handleSubmiteForm}>
@@ -49,7 +57,7 @@ const handleName = event => {
       <div className='w-50 mx-auto mt-5'>
       <div className="mb-3">
        
-       <input onBlur={handleName} type="password" className="form-control" id="exampleInputPassword1" placeholder='enter your name'/>
+       <input onBlur={handleName} type="text" className="form-control" id="exampleInputPassword1" placeholder='enter your name'/>
        </div>
       <div className="mb-3">
       <input onBlur={handleEmail} type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='enter your email'/>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import GoogleSingin from './GoogleSingin/GoogleSingin';
 import './Login.css'
 
 const Login = () => {
@@ -57,6 +58,7 @@ const Login = () => {
       <button className='btn btn-primary'>login</button>
 
       </div>
+      <GoogleSingin></GoogleSingin>
       </form>
   
   );
