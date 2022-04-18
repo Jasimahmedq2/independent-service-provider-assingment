@@ -1,6 +1,7 @@
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../../../firebase.init';
+import './Googlesingin.css'
 
 const GoogleSingin = () => {
   const navigate = useNavigate()
@@ -17,8 +18,8 @@ const GoogleSingin = () => {
   errorFind = <p className='text-center text-danger'>error: {error?.message}</p>
   }
   return (
-    <div>
-      <button className='btn btn-primary' onClick={() => signInWithGoogle()}>google singup</button>
+    <div className='w-50 mx-auto mt-3'>
+      <button className='bg-info  style-btn' onClick={() => signInWithGoogle()}>google singup</button>
       {errorFind}
     </div>
   );

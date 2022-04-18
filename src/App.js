@@ -6,8 +6,9 @@ import Questions from './page/Home/Questions/Questions';
 import Login from './page/Login/Login/Login';
 import RequerAuth from './page/RequerAuth/RequerAuth';
 import Header from './page/Shared/Header/Header';
-import NotFoud from './page/Shared/NotFound/NotFoud';
 import Registerd from './page/Login/Registerd/Registerd'
+import Checkout from './page/Home/Checkout/Checkout'
+import NotFoud from './page/Shared/NotFound/NotFoud';
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/requerauth' element={
           <RequerAuth>
-            <About></About>
+            <Checkout></Checkout>
           </RequerAuth>
         }></Route>
         <Route path='*' element={<NotFoud></NotFoud>}></Route>

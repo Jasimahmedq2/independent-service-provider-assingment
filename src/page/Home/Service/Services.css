@@ -1,0 +1,14 @@
+.service-container img{
+  width: 100%;
+}
+.service-container p{
+  margin: 0px;
+  font-weight: 700;
+  font-size: medium;
+  text-align: start;
+}
+
+.image-size{
+  width: 300px;
+  height: 100px;
+}

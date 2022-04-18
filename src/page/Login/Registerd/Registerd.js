@@ -44,11 +44,10 @@ const handleName = event => {
  const location = useLocation();
  const from = location.state?.from?.pathname || "/";
 
- useEffect(() => {
      if (user) {
-         navigate(from);
+         navigate(from, {replace: true });
      }
- }, [user]);
+ 
   return (
 
     <form onSubmit={handleSubmiteForm}>
@@ -67,8 +66,8 @@ const handleName = event => {
       <input onBlur={handlePassword} type="password" className="form-control" id="exampleInputPassword1" placeholder='password'/>
       </div>
       
-       <p>already have a account? <span className='registerd-btn text-danger' onClick={handleLogin}>log in</span></p>
-      <button className='btn btn-primary'>Login</button>
+       <p>already have a account? <span className='registerd-btn text-danger' onClick={handleLogin}>login</span></p>
+      <button className='btn btn-primary'>Registerd</button>
       </div>
       </form>
   

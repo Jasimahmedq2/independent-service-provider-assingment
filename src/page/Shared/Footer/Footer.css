@@ -1,0 +1,12 @@
+.footer-container{
+  background-color: #000;
+  border-radius: 20px;
+  color:whitesmoke;
+}
+
+
+.footer-section-2 a{
+text-decoration: none;
+color:whitesmoke;
+font-size: medium;
+}

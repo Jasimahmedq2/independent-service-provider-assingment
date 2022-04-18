@@ -1,19 +1,22 @@
 import React from 'react';
-import { useNavigate, } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import './Services.css'
+
 
 const Services = ({service}) => {
-const {name, about, image} = service;
-const navigate = useNavigate()
-const handleCheckout = () => {
-  navigate('/requerauth')
-}
+  const navigate = useNavigate()
+
+  const handleNavigate = () => {
+    navigate('/requerauth')
+  }
+  const {name, price, about,picture} = service;
   return (
-    <div>
+    <div className='col-12 col-md-6 col-lg-4 g-5 service-container'>
+  <img className=' image-size' src={picture} alt="" />
       <p>{name}</p>
       <p>{about}</p>
-      <img src={image} alt="" />
-      <button className='btn btn-primary' onClick={handleCheckout}>
-       checkout</button>
+      <p>{price}</p>
+      <button onClick={handleNavigate} className='btn btn-primary'>checkOut</button>
     </div>
   );
 };
