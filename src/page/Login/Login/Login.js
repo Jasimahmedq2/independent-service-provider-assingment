@@ -1,3 +1,4 @@
+import { sendPasswordResetEmail } from 'firebase/auth';
 import React, { useState } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -31,6 +32,17 @@ const Login = () => {
 
     signInWithEmailAndPassword(email, password)
   }
+
+  const hadlePasswordReset = () => {
+    sendPasswordResetEmail(auth, email)
+    .then(() => {
+      console.log('send password')
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  }
+
   const navigateRegisterd = () => {
     navigate('/registerd')
   }
@@ -54,7 +66,7 @@ const Login = () => {
     <input onBlur={handlePassword} type="password" className="form-control" id="exampleInputPassword1" placeholder='Confirm password'/>
        </div>
        <p className='text-center'>create a new account?  <span className='login-button text-primary'  onClick={navigateRegisterd}>create account</span></p>
-
+       <button className='btn btn-link' onClick={hadlePasswordReset}>password reset?</button>
       <button className='btn btn-primary'>login</button>
 
       </div>
