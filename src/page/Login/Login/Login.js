@@ -4,6 +4,9 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import GoogleSingin from './GoogleSingin/GoogleSingin';
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 import './Login.css'
 
 const Login = () => {
@@ -36,7 +39,7 @@ const Login = () => {
   const hadlePasswordReset = () => {
     sendPasswordResetEmail(auth, email)
     .then(() => {
-      console.log('send password')
+      toast('send password')
     })
     .catch(error => {
       console.log(error)
@@ -60,14 +63,15 @@ const Login = () => {
       {errorElement}
       <div className='w-50 mx-auto mt-5'>
       <div className="mb-3">
-      <input onBlur={handleEmail} type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='enter your email'/>
+      <input onBlur={handleEmail} type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='enter your email' required/>
     </div>
     <div className="mb-3">
-    <input onBlur={handlePassword} type="password" className="form-control" id="exampleInputPassword1" placeholder='Confirm password'/>
+    <input onBlur={handlePassword} type="password" className="form-control" id="exampleInputPassword1" placeholder='Confirm password' required/>
        </div>
        <p className='text-center'>create a new account?  <span className='login-button text-primary'  onClick={navigateRegisterd}>create account</span></p>
        <button className='btn btn-link' onClick={hadlePasswordReset}>password reset?</button>
       <button className='btn btn-primary'>login</button>
+      <ToastContainer></ToastContainer>
 
       </div>
       <GoogleSingin></GoogleSingin>

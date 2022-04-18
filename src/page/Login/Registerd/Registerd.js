@@ -67,11 +67,11 @@ const handleEmailVarification = () => {
        <input onBlur={handleName} type="text" className="form-control" id="exampleInputPassword1" placeholder='enter your name'/>
        </div>
       <div className="mb-3">
-      <input onBlur={handleEmail} type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='enter your email'/>
+      <input onBlur={handleEmail} type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='enter your email' required/>
     </div>
     <div className="mb-3">
        
-      <input onBlur={handlePassword} type="password" className="form-control" id="exampleInputPassword1" placeholder='password'/>
+      <input onBlur={handlePassword} type="password" className="form-control" id="exampleInputPassword1" placeholder='password' required/>
       </div>
       
        <p>already have a account? <span className='registerd-btn text-danger' onClick={handleLogin}>login</span></p>
