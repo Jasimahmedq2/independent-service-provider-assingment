@@ -38,7 +38,7 @@ const handleEmailVarification = () => {
     event.preventDefault()
 
     createUserWithEmailAndPassword(email, password)
-    sendEmailVerification()
+    handleEmailVarification()
   }
 
   const handleLogin = () => {
