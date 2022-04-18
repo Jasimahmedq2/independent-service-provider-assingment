@@ -1,6 +1,7 @@
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../../../firebase.init';
+import google from '../../../image/google.png'
 import './Googlesingin.css'
 
 const GoogleSingin = () => {
@@ -19,7 +20,9 @@ const GoogleSingin = () => {
   }
   return (
     <div className='w-50 mx-auto mt-3'>
-      <button className='bg-info  style-btn' onClick={() => signInWithGoogle()}>google singup</button>
+      <button className='bg-info  style-btn ' onClick={() => signInWithGoogle()}>
+        <img className='google-logo' src={google} alt="" />
+        <span className='ms-2'>google singup</span></button>
       {errorFind}
     </div>
   );

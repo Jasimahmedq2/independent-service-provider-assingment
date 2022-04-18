@@ -7,8 +7,16 @@
   font-size: medium;
   text-align: start;
 }
+.service-container{
+  position: relative;
 
+}
 .image-size{
   width: 300px;
   height: 100px;
+}
+.btn-service{
+  position: absolute;
+  bottom: 0;
+  
 }

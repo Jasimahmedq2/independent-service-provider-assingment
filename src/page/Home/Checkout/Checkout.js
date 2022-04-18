@@ -7,7 +7,7 @@ const Checkout = () => {
      <h2 className='text-center'>welcome to Photographylia</h2>
      <p className='text-center'>thanks for visite my website. if you need any services confirm this form</p>
 
-     <Form className='w-50 mx-auto'>
+     <Form className='w-50 mx-auto bg-black text-white  rounded shadow-lg' >
   <Row className="mb-3">
     <Form.Group as={Col} controlId="formGridEmail">
       <Form.Label>Email</Form.Label>

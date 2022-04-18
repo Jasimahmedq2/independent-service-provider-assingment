@@ -18,7 +18,7 @@ const Home = () => {
 
       <h3 className='text-center mt-5'>my Services:{servicesData.length}</h3>
     
-    <div className='row mx-4 mb-5'>
+    <div className='row mx-2 mb-5'>
       {
         servicesData.map(service => <Services key={service.id} service={service}></Services>)
       }

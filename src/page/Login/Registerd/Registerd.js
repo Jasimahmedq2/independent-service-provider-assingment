@@ -1,5 +1,6 @@
+import { sendEmailVerification } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSendEmailVerification } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import './Registerd.css'
@@ -27,10 +28,17 @@ const Registerd = () => {
 const handleName = event => {
   setName(event.target.value)
 }
+const handleEmailVarification = () => {
+  sendEmailVerification(auth.currentUser)
+  .then(()=>{
+    console.log('send email')
+  })
+}
   const handleSubmiteForm = event => {
     event.preventDefault()
 
     createUserWithEmailAndPassword(email, password)
+    sendEmailVerification()
   }
 
   const handleLogin = () => {
